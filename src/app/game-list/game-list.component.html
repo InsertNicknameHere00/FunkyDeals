@@ -1,0 +1,54 @@
+<div class="main-container-standalone">
+  <div class="container-title">Deals</div>
+
+</div>
+
+<div class="main-container-splitter">
+
+  <div class="left-side-component">
+    <input [(ngModel)]="gameTitle" type="text" placeholder="Title">
+<br>
+    <button (click)="processSearch()" class="button">Search</button>
+<br>
+<button (click)="Refresh()" class="button">Refresh</button>
+    <br>
+    <button (click)="GoToHome()" class="button">Menu</button>
+      </div>
+
+  <div class="right-side-component">
+    <div class="deal-list">
+        <div>
+          @if(GameCollection.length > 0){
+          @for (game of GameCollection; track game) {
+<b>
+              <div>GAME ID: {{game.gameID}}</div>
+              <div>INTERNAL NAME: {{game.internalName}}</div>
+              </b>
+              <div>TITLE: {{game.title}}</div>
+              <div>NORMAL PRICE: {{game.normalPrice}}</div>
+              <div>STORE ID: {{game.storeID}}</div>
+              <div>IS ON SALE: {{game.isOnSale}}</div>
+              <div>SALE PRICE: {{game.salePrice}}</div>
+             <div>SAVINGS: {{(+game.savings).toFixed(0)}}%</div>
+             <br>
+             <div><img src={{game.thumb}} height="100" width="105"></div><br>
+             <button (click)="GoToGameDetail(game.gameID)" class="button">See Deals</button>
+              <hr>
+           }
+          }
+          @if(SearchedGames.length > 0){
+            @for (SearchedGame of SearchedGames; track SearchedGame) {<b>
+                <div>GAME ID: {{SearchedGame.gameID}}</div>
+                <div>EXTERNAL: {{SearchedGame.external}}</div>
+                <div>INTERNAL NAME: {{SearchedGame.internalName}}</div>
+                </b>
+                <div>CHEAPEST PRICE: {{SearchedGame.cheapest}}</div>
+                <div>CHEAPEST DEAL ID: {{SearchedGame.cheapestDealID}}</div>
+               <br>
+               <div><img src={{SearchedGame.thumb}} height="100" width="105"></div><br>
+               <button (click)="GoToGameDetail(SearchedGame.gameID)" class="button">See Deals</button>
+                <hr>
+          }
+        }
+        </div>
+</div>

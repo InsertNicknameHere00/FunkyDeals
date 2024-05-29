@@ -1,0 +1,23 @@
+<div class="main-container-standalone">
+    <div class="container-title">Details</div>
+  
+  </div>
+  
+  <div class="main-container-splitter">
+  
+    <div class="left-side-component">
+      <button (click)="GoToDeals()" class="button">Game List</button>
+        </div>
+  
+    <div class="right-side-component">
+      <div class="deal-list">
+          <div>
+            @for(deal of gameDeals; track deal){
+ <div>STORE ID: {{deal.storeID}}</div>
+  <div>PRICE: {{deal.price}}</div>
+  <div>RETAIL PRICE: {{deal.retailPrice}}</div>
+  <div>DEAL ID: {{deal.dealID}}</div>
+  <hr>
+            }
+          </div>
+  </div>

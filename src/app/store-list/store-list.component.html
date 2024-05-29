@@ -1,0 +1,21 @@
+<div class="main-container-standalone">
+  <div class="container-title">Stores</div>
+
+</div>
+
+<div class="main-container-splitter">
+
+  <div class="left-side-component">
+    <button (click)="GoToHome()" class="button">Menu</button>
+      </div>
+
+  <div class="right-side-component">
+    <div class="deal-list">
+        <div>
+          @for (store of StoreCollection; track store) {
+<div>STORE ID: {{store.storeID}}</div>
+<div>STORE NAME: {{store.storeName}}</div>
+<hr>
+           }
+        </div>
+</div>
